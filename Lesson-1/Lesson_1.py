@@ -1,4 +1,78 @@
-﻿# #1
+﻿# #8
+
+def  task8():
+    print('8 task')
+
+    X = int(input('X-coordinate: '))
+    Y = int(input('Y-coordinate: '))
+
+    if X==0 and Y==0:
+        print('point in the center of the coordinates')
+    elif X==0:
+        print('a point on the X-axis')
+    elif Y==0:
+        print('a point on the Y-axis')
+    elif X > 0 and Y > 0:
+        print('point in 1 coordinate quarter')
+    elif X < 0 and Y > 0:
+        print('point in 2 coordinate quarter')
+    elif X < 0 and Y < 0:
+        print('point in 3 coordinate quarter')
+    elif X > 0 and Y < 0:
+        print('point in 4 coordinate quarter')
+
+    return
+
+task8()
+
+# #9
+def task9():
+
+    print('9 task')
+
+    quarter = int(input('enter a number of quarter: '))
+
+    if quarter == 1:
+        print(f'point can have coodinates: X > 0 Y > 0')
+    elif quarter == 2:
+        print(f'point can have coodinates: X < 0 Y > 0')
+    elif quarter == 3:
+        print(f'point can have coodinates: X < 0 Y < 0')
+    elif quarter == 4:
+        print(f'point can have coodinates: X > 0 Y < 0')
+
+    return
+
+task9()
+
+# #10
+def points():
+    coordinates = ["X", "Y"]
+    point =[]
+    for i in range(coordinates.__len__()):
+        point.append(float(input(f'enter {coordinates[i]}: ')))
+    
+    return point
+
+def task10():
+    print('10 task')
+
+    print('first point')
+    firstpoint = points()
+    print('===============')
+    print('second point')
+    secondpoint = points()
+    print('===============')
+
+    distance = ((firstpoint[0] - secondpoint[0])**2 + (firstpoint[1] - secondpoint[1])**2)**0.5
+
+    print(f'distance {distance}')
+
+    return
+
+task10()
+
+# #1
 
 #a = int(input('enter first number: '))
 #b = int(input('enter second number: '))
