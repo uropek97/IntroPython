@@ -1,76 +1,155 @@
-﻿# #8
+﻿# #14
+import re
 
-def  task8():
-    print('8 task')
 
-    X = int(input('X-coordinate: '))
-    Y = int(input('Y-coordinate: '))
+def sum(num):
+    result = 0
 
-    if X==0 and Y==0:
-        print('point in the center of the coordinates')
-    elif X==0:
-        print('a point on the X-axis')
-    elif Y==0:
-        print('a point on the Y-axis')
-    elif X > 0 and Y > 0:
-        print('point in 1 coordinate quarter')
-    elif X < 0 and Y > 0:
-        print('point in 2 coordinate quarter')
-    elif X < 0 and Y < 0:
-        print('point in 3 coordinate quarter')
-    elif X > 0 and Y < 0:
-        print('point in 4 coordinate quarter')
+    while num > 0:
+        result += num%10
+        num = int(num/10)
 
-    return
+    return result
 
-task8()
+def task14():
+    number = input('input number(float): ')
 
-# #9
-def task9():
 
-    print('9 task')
+    x = number.split('.') 
 
-    quarter = int(input('enter a number of quarter: '))
+    integer = int(x[0])
+    if x.__len__() > 1:
+        fract = int(x[1])
 
-    if quarter == 1:
-        print(f'point can have coodinates: X > 0 Y > 0')
-    elif quarter == 2:
-        print(f'point can have coodinates: X < 0 Y > 0')
-    elif quarter == 3:
-        print(f'point can have coodinates: X < 0 Y < 0')
-    elif quarter == 4:
-        print(f'point can have coodinates: X > 0 Y < 0')
 
-    return
+    result = sum(integer)
+    if x.__len__() > 1:
+        result += sum(fract)
 
-task9()
+    print(f'sum of digits {number}: {result}')
+    
+    return result
+
+task14()
+
+
+# #15
+def task15():
+    N = int(input('input number(int > 1): '))
+
+    numbers = [1]
+    i = 1
+    while i < N: 
+        numbers.append(numbers[i-1]*(i+1))
+        i += 1
+
+    print(numbers)
+    
+    return numbers
+
+task15()
+
+
+# #18
+from random import randint
+
+def algoritmmix(startlist):    
+    newlist = startlist.copy()
+    i = 0
+    amount = newlist.__len__()
+
+    while i < amount-1:
+        random = randint(i+1, amount-1)
+        temp1 = newlist[random]
+        temp2 = newlist[i]
+        newlist[i] = temp1
+        newlist[random] = temp2
+        i += 1
+
+    print(newlist)        
+
+    return newlist
+
+def task18():
+
+     startlist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+     algoritmmix(startlist)
+     
+task18()
+
+## #8
+
+#def  task8():
+#    print('8 task')
+
+#    X = int(input('X-coordinate: '))
+#    Y = int(input('Y-coordinate: '))
+
+#    if X==0 and Y==0:
+#        print('point in the center of the coordinates')
+#    elif X==0:
+#        print('a point on the X-axis')
+#    elif Y==0:
+#        print('a point on the Y-axis')
+#    elif X > 0 and Y > 0:
+#        print('point in 1 coordinate quarter')
+#    elif X < 0 and Y > 0:
+#        print('point in 2 coordinate quarter')
+#    elif X < 0 and Y < 0:
+#        print('point in 3 coordinate quarter')
+#    elif X > 0 and Y < 0:
+#        print('point in 4 coordinate quarter')
+
+#    return
+
+#task8()
+
+## #9
+#def task9():
+
+#    print('9 task')
+
+#    quarter = int(input('enter a number of quarter: '))
+
+#    if quarter == 1:
+#        print(f'point can have coodinates: X > 0 Y > 0')
+#    elif quarter == 2:
+#        print(f'point can have coodinates: X < 0 Y > 0')
+#    elif quarter == 3:
+#        print(f'point can have coodinates: X < 0 Y < 0')
+#    elif quarter == 4:
+#        print(f'point can have coodinates: X > 0 Y < 0')
+
+#    return
+
+#task9()
 
 # #10
-def points():
-    coordinates = ["X", "Y"]
-    point =[]
-    for i in range(coordinates.__len__()):
-        point.append(float(input(f'enter {coordinates[i]}: ')))
+#def points():
+#    coordinates = ["X", "Y"]
+#    point =[]
+#    for i in range(coordinates.__len__()):
+#        point.append(float(input(f'enter {coordinates[i]}: ')))
     
-    return point
+#    return point
 
-def task10():
-    print('10 task')
+#def task10():
+#    print('10 task')
 
-    print('first point')
-    firstpoint = points()
-    print('===============')
-    print('second point')
-    secondpoint = points()
-    print('===============')
+#    print('first point')
+#    firstpoint = points()
+#    print('===============')
+#    print('second point')
+#    secondpoint = points()
+#    print('===============')
 
-    distance = ((firstpoint[0] - secondpoint[0])**2 + (firstpoint[1] - secondpoint[1])**2)**0.5
+#    distance = ((firstpoint[0] - secondpoint[0])**2 + (firstpoint[1] - secondpoint[1])**2)**0.5
 
-    print(f'distance {distance}')
+#    print(f'distance {distance}')
 
-    return
+#    return
 
-task10()
+#task10()
 
 # #1
 
@@ -150,6 +229,48 @@ task10()
 
 #print(firstpart == secondpart)
 
+# #11
+
+#numbers = [1]
+#n = 0
+#while n < 1:
+#    n = int(input('input number(number must be more than 1): '))
+
+#i = 1;
+#while i < n:
+#    numbers.append(numbers[i-1]*-3)
+#    i+=1
+
+#print(numbers)
+
+# #12
+#dictionary = dict()
+
+#n = -1
+#while n < 0:
+#    n = int(input('input number(number must be more than 0): '))
+
+#i = 1
+#while i <= n:
+#    dictionary[i] = 3*i+1
+#    i+=1
+
+#print(dictionary)
+
+# #13
+#search = input('input search string: ')
+#found = input('input found string: ')
+
+#index = 0
+#count = 0
+#while index != -1:
+#    index = search.find(found)
+#    if index >=0:
+#        count += 1
+#    search = search[index+1:]
+
+#print(count)
+
 
 # #16 
 
@@ -162,3 +283,5 @@ task10()
 #    result+=numbList[count-1]**count
 #    count+=1
 #print(result)
+
+
