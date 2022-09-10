@@ -1,5 +1,4 @@
 ﻿# #14
-import re
 
 
 def sum(num):
