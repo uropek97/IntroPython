@@ -72,9 +72,12 @@ def check_end(liststr, symb = '_'):
     return False
 
 def tic_tac_toe_game(liststr, symb1 = 'X', symb2 = 'O'):
+    print('Игра крестики-нолики.\nДля хода введите строку и колонну, в которую хотите вставить символ.')
+
     print(f'{liststr[0]}\n{liststr[1]}\n{liststr[2]}')
 
     while True:
+        print(f'Ход Игрока 1({symb1})')
         move(liststr, symb1)
         if check_win(liststr, symb1):
             print(f'Победитель: Игорок 1({symb1})')
@@ -82,6 +85,7 @@ def tic_tac_toe_game(liststr, symb1 = 'X', symb2 = 'O'):
         if check_end(liststr):
             print('Ничья')
             return
+        print(f'Ход Игрока 2({symb2})')
         move(liststr, symb2)
         if check_win(liststr, symb2):
             print(f'Победитель: Игорок 2({symb2})')
